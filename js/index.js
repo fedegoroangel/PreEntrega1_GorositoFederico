@@ -103,3 +103,122 @@ console.log("muchas gracias por utilizar nuestros servicios")
 // }
 
 // console.log("fin de la seleccion");
+
+
+// segunda preentrega---------------------------------------------------------------------------
+
+
+// usuario 
+
+function persona(nombre,apellido,edad,domicilio,sexo){
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.edad = edad;
+    this.domicilio = domicilio;
+    this.sexo = sexo;
+}
+
+const persona1 = new persona("fede","gorosito",35,"sauces 1555","masculino") 
+
+//bienvenida inicial
+
+function saludar (nombre, mensajeSaludo){
+
+    if(mensajeSaludo == "noche"){
+            console.log("Buenas noches" + nombre);
+    }
+    if(mensajeSaludo == "dia"){
+            console.log("Buenos Dias" + nombre);
+    }
+}
+
+
+
+
+
+
+
+const nombreUsuario = prompt("por favor ingrese su nombre completo");
+const apellidoUsuario = prompt("a continuacion, ingrese su apellido completo");
+
+if (nombreUsuario =="" || apellidoUsuario ==""){                                           
+    alert("alguno de los campos de nombre o apellido esta incompleto, por favor reingreselos o prueve mas tarde")
+}
+
+let sexoUsuario = prompt("ingrese su sexo, recuerde poner solo masculino, femenino u otros")
+
+if (sexoUsuario == "masculino"){
+    sexoUsuario = "señor";
+}else{
+    if(sexoUsuario == "femenino"){
+        sexoUsuario = "señorita";
+    }else{
+        if(sexoUsuario |= "masculino" && "femenino"){
+            sexoUsuario = NaN;     //null genera un 0
+        }
+    }
+}
+
+let saludo = ("bienvenido" + " " + sexoUsuario + " " + apellidoUsuario + " " + nombreUsuario +" " + "al sistema de solicitud de turnos para licencias de conducir");
+
+console.log(saludo);
+
+// edad minima para iniciar un tramite     
+
+const edad = parseInt(prompt ("a continuación ingrese su edad"));
+const edadMinima = 18     //edad minima en santa fe para iniciar tramites de licencia de conducir
+
+
+if (edad >= edadMinima){
+    console.log ("felicidades" + " " + sexoUsuario + " " + nombreUsuario + " " + apellidoUsuario + " " + "ustes tiene la edad minima para iniciar tramites de licencia de conducir en la localidad")
+}else{
+    if (edad < edadMinima){
+        alert (sexoUsuario +" " + nombreUsuario + " " + apellidoUsuario + " " + "usted no cuenta con la edad minima requerida para iniciar tramites originales ni renovaciones de licencia de conducir en esta localidad por favor vuelva a intentarlo cuando cumpla con un minimo de 18 años")
+    }
+
+}
+
+// tipo de tramite
+
+function tipoDeTramite(tramite) {
+    const seleccion = prompt ("ingrese el tipo de tramite que desea realizar(original,renovacion,renovacion con ampliacion)");
+
+    switch(tramite){
+
+        case (seleccion == "original"):
+            console.log("para tramites originales deberá poseer la siguiente documentación: dni con el domicilio en la localidad; formulario CENAT el cual podra tramitar desde la pag:WWW.santafe.gov.ar/cenat;grupo sanguineo certificado por bioquimico")
+            break;
+        
+        case (seleccion == "renovación"):
+            console.log("para renovaciónes deberá poseer la siguiente documentación: dni con el domicilio en la localidad y formulario CENAT el cual podra tramitar desde la pag:WWW.santafe.gov.ar/cenat")
+            break;
+        
+        case (seleccion == "renovación con ampliaciónn"):
+            console.log("para renovaciones con ampliación deberá poseer la siguiente documentación: dni con el domicilio en la localidad; formulario CENAT el cual podra tramitar desde la pag:WWW.santafe.gov.ar/cenat y rendir el examen correspondiente acorde a la categoria solicitada")
+            break;
+
+        default:
+            alert("por favor indique el tipo de tramite original, renovación o renovación con ampliación")
+            break;
+    }
+}
+
+
+
+// categoria de licencia
+//opcion 1 funciona 
+
+let categoriaActual1 = prompt("ingrese la primer categoría por ejemplo B1, A3, etc.")
+
+
+while(categoriaActual1 != "N" || categoriaActual1 != "n"){
+    console.log("usted a ingresado la categoria" + " " + categoriaActual1);
+    categoriaActual1 = (prompt("desea agregar nueva categoria? Y/N"))
+    if(categoriaActual1 == "Y" || categoriaActual1 == "y"){
+        categoriaActual1= prompt("ingrese nueva categoria")
+    }else{
+        break;
+    }
+}
+
+console.log("muchas gracias por utilizar nuestros servicios")
